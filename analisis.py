@@ -9,4 +9,6 @@ ruta_csv = "data/sensores_industriales.csv"
 df = pd.read_csv (ruta_csv)
 
 # mostrar las primeras filas
-print(df.head())
+print(df.head(10))
+
+df.info()
