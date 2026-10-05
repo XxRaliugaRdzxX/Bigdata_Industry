@@ -43,4 +43,11 @@ lect_tem = (df['temperatura_c'] > lim).sum()
 print(lect_tem)
 
 print("\nPlanta con más alertas detectadas")
-promedio = (df.groupby('planta')['temperatura_c'].mean().reset_index() > lim).sum()
+alertas = df[df['temperatura_c']> lim]
+conteo_alertas = alertas.groupby('planta')['temperatura_c'].count()
+
+planta_con_mas_alertas = conteo_alertas.idxmax()
+total_alertas = conteo_alertas.max()
+
+print("\nLa sucursal con más alertas es la sucursal:", planta_con_mas_alertas)
+print("\nCon un total de:", total_alertas)
