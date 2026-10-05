@@ -51,3 +51,5 @@ total_alertas = conteo_alertas.max()
 
 print("\nLa sucursal con más alertas es la sucursal:", planta_con_mas_alertas)
 print("\nCon un total de:", total_alertas)
+
+alertas.to_csv('resultados/alertas.csv', index=False)
