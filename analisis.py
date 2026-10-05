@@ -19,6 +19,13 @@ print("\nCantidad de sensores distintos")
 sensores_unicos = df['id_sensor'].nunique()
 print(sensores_unicos)
 
+print("\nEn total hay el número de plantas de:")
+n_plantas = df['planta'].nunique()
+print(n_plantas)
+
+promedio = df.groupby('planta')['temperatura_c'].mean().reset_index()
+print("\nEl promedio de las plantas es:", promedio)
+
 print("\nEl registro con la temperatura más alta detectada fue:")
 temperatura_max = df['temperatura_c'].idxmax()
 print("Registro:",temperatura_max)
@@ -29,3 +36,11 @@ sensor_max = datos_temperatura_max['id_sensor']
 sensor_fecha = datos_temperatura_max['fecha_hora']
 print("El sensor que registro la temperatura más alta fue:", sensor_max)
 print("La fecha cuando el sensor detecto la temperatura más alta fue:", sensor_fecha)
+
+print("\nLecturas registradas mayores a 85 °C")
+lim = 85
+lect_tem = (df['temperatura_c'] > lim).sum()
+print(lect_tem)
+
+print("\nPlanta con más alertas detectadas")
+promedio = (df.groupby('planta')['temperatura_c'].mean().reset_index() > lim).sum()
