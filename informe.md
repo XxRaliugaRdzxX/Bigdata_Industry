@@ -116,9 +116,3 @@ Con el CSV actual no se puede responder, por lo siguiente:
 | Planta con más alertas | Planta_3, con 1,777 |
 | Sensor con más alertas | S027, con 211 (8.44 % de sus lecturas) |
 | Correlación temperatura–vibración | 0.0011 |
-
-## Código complementario
-
-Este bloque se puede añadir al final de tu script. No modifica nada de lo que ya hace y calcula lo que se usó en Veracidad y Velocidad.
-
-```
