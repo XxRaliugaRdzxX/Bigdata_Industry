@@ -75,18 +75,5 @@ Para ese punto se suelen usar formatos columnares (como Parquet), bases de datos
 
 Este bloque se puede añadir al final de tu script. No modifica nada de lo que ya hace y calcula lo que se usó en Veracidad y Velocidad.
 
-```python
-# --- Complemento para las 5 V ---
-print("\nValores nulos por columna")
-print(df.isna().sum())
-
-print("\nRegistros duplicados (id_registro)")
-print(df['id_registro'].duplicated().sum())
-
-# Indicar el formato evita que pandas interprete mal día y mes
-df['fecha'] = pd.to_datetime(df['fecha_hora'], format="%d/%m/%y %H:%M")
-print("\nPeriodo cubierto:", df['fecha'].min(), "->", df['fecha'].max())
-
-intervalo = df[df['id_sensor'] == 'S001']['fecha'].diff().dropna().median()
-print("Intervalo entre lecturas de un sensor:", intervalo)
 ```
+
