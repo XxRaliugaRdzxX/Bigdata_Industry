@@ -7,6 +7,7 @@
 ## DataSet 
 - sensores_industriales.csv(4.5 MB)
 - Datos sobre sensores, temperaturas y vibraciones.
+- ¡LOS DATOS SON SIMULADOS!
 ---
 
 ## Objetivo
