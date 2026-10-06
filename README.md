@@ -1,3 +1,8 @@
+## Aguilar Rodriguez Kevin Daniel
+## Casas Pilar Leonardo Isaac
+### IDIA-224
+### 05 Octubre del 2026
+
 # Practica de Manejo masivo de datos [sensores_industriales]
 
 > Una empresa utiliza sensores para monitorear máquinas en cuatro plantas industriales. Cada sensor registra su temperatura y vibración una vez por minuto. La empresa te proporciona el archivo sensores_industriales.csv, que contiene 100,000 mediciones simuladas. Tu trabajo consiste en analizarlo con Python, documentar los resultados y publicar un proyecto reproducible en GitHub.

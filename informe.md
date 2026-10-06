@@ -71,7 +71,25 @@ Batch, para poder calcular el conteo de alertas presentadas a lo largo del día 
 - Para las alertas es más óptimo utilizar un sistema streaming, de esta manera se tiene al pendiente cada sensor y algun evento que se este presentando en tiempo real
 - Por el contrario, si se requiere de un informe al final del periodo resulta más óptimo batch ya que el costo y la complejidad de mantener un flujo continuo no se justifican.
 
+## 8. Lamda y Kappa
 
+Escenario A
+    
+Arquitectura Lambda
+
+- Capa de lotes (Batch Layer): Recalcula de forma periódica todo el historial completo para mantener vistas analíticas precisas e inmutables.
+
+- Capa de velocidad (Speed Layer): Procesa los datos en tiempo real para ofrecer resultados de baja latencia con un costo computable menor.
+
+- Capa de servicio (Serving Layer): Combina las vistas resultantes de la capa de lotes con las de la capa de velocidad para responder consultas de manera unificada.
+
+Escenario B
+
+Arquitectura Kappa
+
+- Procesamiento único: Elimina la duplicidad de mantener dos códigos o entornos distintos (lotes y streaming). Toda la lógica de negocio se ejecuta en un solo motor de procesamiento de eventos en flujo (stream processing).
+
+- Re-procesamiento (Reprocessing): Los datos entrantes se almacenan en un registro append-only de retención extensible (como un log de eventos en Apache Kafka). Cuando se modifica un algoritmo o se requiere reprocesar datos pasados, el motor simplemente lee el flujo desde el principio (offset 0) usando exactamente el mismo código de tiempo real.
 
 ## 9. Analítica descriptiva, predictiva y prescriptiva
 
