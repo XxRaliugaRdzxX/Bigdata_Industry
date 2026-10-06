@@ -58,6 +58,21 @@ Con esos tamaños empezarían estas limitaciones:
 
 Para ese punto se suelen usar formatos columnares (como Parquet), bases de datos de series de tiempo y procesamiento distribuido (como Spark).
 
+## 7. Tipo de procesamiento realizado
+Batch, debido a que el programa que esta analizando el conjunto de datos ya se encuentra almacenado en un archivo estructurado CSV. Además, todos los registros se analizan de manera global y simultánea en un solo bloque de ejecución, sin que lo datos lleguen de forma continua en tiempo real.
+
+## ¿Cómo puedo emitir una alerta pocos segundos después de un evento?
+Streaming, badandonos en una arquitectura de procesamiento de eventos mediante un broker, en donde los sensores se comuniquen por protocolos como MQTT  y un motor de procesamiento evalúe la condición de la lectura y dispare si un evento se presenta
+
+## ¿Cómo generar un informe al terminar el día?
+Batch, para poder calcular el conteo de alertas presentadas a lo largo del día es más eficiente procesar todo el volumen de datos al cierre de periodo en lugar de estar recalculando el resumen cada segundo.
+
+## Toma de decision en relación a la necesidad de cada resultado
+- Para las alertas es más óptimo utilizar un sistema streaming, de esta manera se tiene al pendiente cada sensor y algun evento que se este presentando en tiempo real
+- Por el contrario, si se requiere de un informe al final del periodo resulta más óptimo batch ya que el costo y la complejidad de mantener un flujo continuo no se justifican.
+
+
+
 ## 9. Analítica descriptiva, predictiva y prescriptiva
 
 ### Descriptiva: ¿qué pasó?
